@@ -16,16 +16,12 @@ class UsersController < ApplicationController
       else
          flash[:error] = "#{error_message(user.errors)}"
          redirect_to register_user_path
-      end   
+      end
    end
-
-
-
 
 private
 
-  def user_params
+   def user_params
       params.require(:user).permit(:name, :email)
-  end
-
+   end
 end
