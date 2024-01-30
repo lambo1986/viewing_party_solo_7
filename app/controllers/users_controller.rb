@@ -9,7 +9,11 @@ class UsersController < ApplicationController
    end
 
    def discover
-      
+
+   end
+
+   def search
+
    end
 
    def create
