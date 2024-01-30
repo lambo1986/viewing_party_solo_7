@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   get '/register', to: 'users#new', as: 'register_user'
 
   resources :users, only: [:show, :create] do
-
+    get '/discover', to: 'users#discover'#not sure if this is where I want to go with this route
   end
 end
