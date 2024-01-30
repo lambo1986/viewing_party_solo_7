@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'simplecov'
+require 'vcr'
 SimpleCov.start
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
@@ -77,6 +78,11 @@ Shoulda::Matchers.configure do |config|
 end
 
 VCR.configure do |config|
-  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
-  config.hook_into :webmock
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"# stock
+  config.hook_into :webmock# stock
+  config.filter_sensitive_data('<TMDB>') {
+Rails.application.credentials.tmdb[:key] }
+  config.default_cassette_options = { re_record_interval: 7.days }
+  config.configure_rspec_metadata!
+  config.allow_http_connections_when_no_cassette = true# makes it possible to run the tests making an actual http request
 end
