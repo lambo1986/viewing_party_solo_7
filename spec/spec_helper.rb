@@ -14,7 +14,7 @@
 #
 require "webmock/rspec"#added for webmock
 require "capybara/rspec"#added for capybara
-
+require "vcr"
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
 
