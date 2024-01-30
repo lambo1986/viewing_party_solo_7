@@ -8,7 +8,7 @@ RSpec.describe 'Create New User', type: :feature do
 
       visit register_user_path
     end
-    
+
     it 'They see a Home link that redirects to landing page' do
 
       expect(page).to have_link('Home')
@@ -17,19 +17,19 @@ RSpec.describe 'Create New User', type: :feature do
 
       expect(current_path).to eq(root_path)
     end
-    
+
     it 'They see a form to fill in their name, email, password, and password confirmation' do
       expect(page).to have_field("user[name]")
       expect(page).to have_field('user[email]')
-      expect(page).to have_selector(:link_or_button, 'Create New User')    
+      expect(page).to have_selector(:link_or_button, 'Create New User')
     end
-    
+
     it 'When they fill in the form with their name and email then they are taken to their dashboard page "/users/:id"' do
       fill_in "user[name]", with: 'Chris'
       fill_in "user[email]", with: 'chris@email.com'
 
       click_button 'Create New User'
-    
+
       new_user = User.last
 
       expect(current_path).to eq(user_path(new_user))
@@ -55,7 +55,7 @@ RSpec.describe 'Create New User', type: :feature do
       expect(page).to have_content("Name can't be blank, Email can't be blank")
     end
 
-    it 'They fill in form with invalid email format (only somethng@something.something)' do 
+    it 'They fill in form with invalid email format (only somethng@something.something)' do
       fill_in "user[name]", with: "Sam"
       fill_in "user[email]", with: "sam sam@email.co.uk"
 
@@ -85,7 +85,5 @@ RSpec.describe 'Create New User', type: :feature do
       expect(current_path).to eq(register_user_path)
       expect(page).to have_content('Email is invalid')
     end
-
-    
   end
 end

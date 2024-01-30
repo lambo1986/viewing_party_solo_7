@@ -1,0 +1,9 @@
+<h1>List of Top Movies:</h1>
+<%= button_to "Top 20 Movies", movies_user_path(id: params[:id]), method: :get, params: { q: "top rated"} %>
+
+<h1>Search For a Movie By Title:</h1>
+<%= form_with url: movies_user_path(id: params[:id]), method: :get, local: true do |form| %>
+  <%= form.label :search, "Movie Title" %>
+  <%= form.text_field :search %>
+  <%= form.submit 'Search' %>
+<% end %>
