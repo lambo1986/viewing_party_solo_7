@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :create] do
     get '/discover', to: 'users#discover', on: :member#not sure if this is where I want to go with this route
-    get '/movies', to: 'movies#index', on: :member
+    get '/movies', to: 'users#movies', on: :member
   end
 end
