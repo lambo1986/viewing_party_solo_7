@@ -9,15 +9,33 @@ RSpec.describe "movies page for a user", type: :feature do# US-2
 
     expect(current_path).to eq("/users/1/movies")
     expect(page).to have_content("Top 20 Movies")
-    expect(page).to have_content("Shawshank Redemption")
+    expect(page).to have_link("Shawshank Redemption")
+    expect(page).to have_content("Vote Average: 8.711")
 
-    visit "/users/1/discover"
+    click_link("Shawshank Redemption")
+
+    expect(current_path).to eq("/users/1/movies/278")
+    expect(page).to have_link("Return to Discover")
+
+    click_link("Return to Discover")
+
+    expect(current_path).to eq("/users/1/discover")
 
     fill_in "search", with: "Big"
     click_button "Search"
 
     expect(current_path).to eq("/users/1/movies")
     expect(page).to have_content("Searched Movie:")
-    expect(page).to have_content("Big")
+    expect(page).to have_link("Big")
+    expect(page).to have_content("Vote Average: 7.163")
+
+    click_link("Big")
+
+    expect(current_path).to eq("/users/1/movies/2280")
+    expect(page).to have_link("Return to Discover")
+
+    click_link("Return to Discover")
+
+    expect(current_path).to eq("/users/1/discover")
   end
 end
