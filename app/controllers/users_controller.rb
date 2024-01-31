@@ -9,12 +9,12 @@ class UsersController < ApplicationController
    end
 
    def movies
+      @user = User.find(params[:id])
       if params[:q] == "top rated"
          @top_rated = MovieService.top_rated
       elsif params[:q] == "search"
          @movie = MovieService.search(params[:search])
       end
-
    end
 
    def create
