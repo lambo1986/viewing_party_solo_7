@@ -2,7 +2,8 @@
 
   <h1>Searched Movie:</h1>
   <% if @movie %>
-    <h2>Title: <%= @movie[:title] %></h2>
+    <h2>Title: <%= link_to "#{@movie[:title]}", "/users/#{@user.id}/movies/#{@movie[:id]}" %></h2>
+    <h3>Vote Average: <%= @movie[:vote_average] %></h3>
     <h3>Overview: <%= @movie[:overview] %></h3>
   <% else %>
     <h1>No Movie Found. Please Try Again.</h1>
@@ -13,7 +14,8 @@
   <h1>Top 20 Movies</h1>
 
   <% @top_rated.each do |movie| %>
-      <h2>Title: <%= movie[:title] %></h2>
+      <h2>Title: <%= link_to "#{movie[:title]}", "/users/#{@user.id}/movies/#{movie[:id]}" %></h2>
+      <h3>Vote Average: <%= movie[:vote_average] %></h3>
       <h3>Overview: <%= movie[:overview] %></h3>
   <% end %>
 
