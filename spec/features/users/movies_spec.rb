@@ -14,7 +14,6 @@ RSpec.describe "movies page for a user", type: :feature do# US-2
     visit "/users/1/discover"
 
     fill_in "search", with: "Big"
-  
     click_button "Search"
 
     expect(current_path).to eq("/users/1/movies")
