@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/2280?api_key=e1c26902efd7893644587d792188237b&query=2280
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 5e75b851c2081c6bde13845e675308d4
+      X-Memc-Age:
+      - '15720'
+      X-Memc-Expires:
+      - '11087'
+      Date:
+      - Wed, 31 Jan 2024 20:44:28 GMT
+      Cache-Control:
+      - public, max-age=14918
+      Etag:
+      - W/"7ae1375fbf9b420774f30f9c3dffe191"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 35ccb6cc125c2f90120be4104c394baa.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - ATL58-P2
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - Z78P5UsTqYa7tCcnHLwoePn0JxxXT_kdFf5U1tw1B0FO9J9ntrc7lw==
+      Age:
+      - '7863'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIvZEdiQm5UWXhkSGYxcXlVZ0hzdUZweG4xSzRFLmpwZyIsImJlbG9uZ3NfdG9fY29sbGVjdGlvbiI6bnVsbCwiYnVkZ2V0IjoxODAwMDAwMCwiZ2VucmVzIjpbeyJpZCI6MTQsIm5hbWUiOiJGYW50YXN5In0seyJpZCI6MTgsIm5hbWUiOiJEcmFtYSJ9LHsiaWQiOjM1LCJuYW1lIjoiQ29tZWR5In0seyJpZCI6MTA3NDksIm5hbWUiOiJSb21hbmNlIn0seyJpZCI6MTA3NTEsIm5hbWUiOiJGYW1pbHkifV0sImhvbWVwYWdlIjoiIiwiaWQiOjIyODAsImltZGJfaWQiOiJ0dDAwOTQ3MzciLCJvcmlnaW5hbF9sYW5ndWFnZSI6ImVuIiwib3JpZ2luYWxfdGl0bGUiOiJCaWciLCJvdmVydmlldyI6IldoZW4gYSB5b3VuZyBib3kgbWFrZXMgYSB3aXNoIGF0IGEgY2Fybml2YWwgbWFjaGluZSB0byBiZSBiaWfigJRoZSB3YWtlcyB1cCB0aGUgZm9sbG93aW5nIG1vcm5pbmcgdG8gZmluZCB0aGF0IGl0IGhhcyBiZWVuIGdyYW50ZWQgYW5kIGhpcyBib2R5IGhhcyBncm93biBvbGRlciBvdmVybmlnaHQuIEJ1dCBoZSBpcyBzdGlsbCB0aGUgc2FtZSAxMy15ZWFyLW9sZCBib3kgaW5zaWRlLiBOb3cgaGUgbXVzdCBsZWFybiBob3cgdG8gY29wZSB3aXRoIHRoZSB1bmZhbWlsaWFyIHdvcmxkIG9mIGdyb3duLXVwcyBpbmNsdWRpbmcgZ2V0dGluZyBhIGpvYiBhbmQgaGF2aW5nIGhpcyBmaXJzdCByb21hbnRpYyBlbmNvdW50ZXIgd2l0aCBhIHdvbWFuLiIsInBvcHVsYXJpdHkiOjI5LjM1NiwicG9zdGVyX3BhdGgiOiIvZVdoQ0RKaXd4dngzWVhrQUZSaUhqaW1uRjBqLmpwZyIsInByb2R1Y3Rpb25fY29tcGFuaWVzIjpbeyJpZCI6MjE0NTEsImxvZ29fcGF0aCI6bnVsbCwibmFtZSI6IkFtZXJpY2FuIEVudGVydGFpbm1lbnQgUGFydG5lcnMgSUkgTC5QLiIsIm9yaWdpbl9jb3VudHJ5IjoiIn0seyJpZCI6MTgsImxvZ29fcGF0aCI6Ii91cWhhZ1N3TTdOQWtRV1ZDUWhLVHlvcUY4WEgucG5nIiwibmFtZSI6IkdyYWNpZSBGaWxtcyIsIm9yaWdpbl9jb3VudHJ5IjoiVVMifSx7ImlkIjoyNSwibG9nb19wYXRoIjoiL3FaQ2MxbHR5NUZ6WDMwYU9DVlJCTHphVm1jcC5wbmciLCJuYW1lIjoiMjB0aCBDZW50dXJ5IEZveCIsIm9yaWdpbl9jb3VudHJ5IjoiVVMifV0sInByb2R1Y3Rpb25fY291bnRyaWVzIjpbeyJpc29fMzE2Nl8xIjoiVVMiLCJuYW1lIjoiVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIn1dLCJyZWxlYXNlX2RhdGUiOiIxOTg4LTA2LTAzIiwicmV2ZW51ZSI6MTUxOTI3MjgxLCJydW50aW1lIjoxMDQsInNwb2tlbl9sYW5ndWFnZXMiOlt7ImVuZ2xpc2hfbmFtZSI6IkVuZ2xpc2giLCJpc29fNjM5XzEiOiJlbiIsIm5hbWUiOiJFbmdsaXNoIn1dLCJzdGF0dXMiOiJSZWxlYXNlZCIsInRhZ2xpbmUiOiJIYXZlIHlvdSBldmVyIGhhZCBhIHJlYWxseSBiaWcgc2VjcmV0PyIsInRpdGxlIjoiQmlnIiwidmlkZW8iOmZhbHNlLCJ2b3RlX2F2ZXJhZ2UiOjcuMTYzLCJ2b3RlX2NvdW50IjozMzg0fQ==
+  recorded_at: Wed, 31 Jan 2024 22:55:31 GMT
+recorded_with: VCR 6.2.0
