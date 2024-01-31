@@ -17,4 +17,13 @@ class MovieService
     data = JSON.parse(response.body, symbolize_names: true)
     data[:results].detect { |film| film[:title].strip.casecmp(title.strip).zero? }#rid the whitespace and ignore case
   end
+
+  def self.search_by_id(id)
+    conn = Faraday.new("https://api.themoviedb.org")
+    response = conn.get("/3/movie/#{id}") do |req|# input movie id and user key
+      req.params['api_key'] = API_KEY
+      req.params['query'] = id
+    end
+    data = JSON.parse(response.body, symbolize_names: true)
+  end
 end
