@@ -1,5 +1,5 @@
 class MovieService
-  API_KEY = Rails.application.credentials.tmdb[:api_key]# constant
+  API_KEY = Rails.application.credentials.tmdb[:api_key]# constant (upcase means this variable should not change)
 
   def self.top_rated
     conn = Faraday.new(url: "https://api.themoviedb.org")
@@ -10,8 +10,11 @@ class MovieService
 
   def self.search(title)
     conn = Faraday.new("https://api.themoviedb.org")
-    response = conn.get("/3/search/movie?query=#{title}&api_key=#{API_KEY}")
+    response = conn.get("/3/search/movie") do |req|# input movie title and user key
+      req.params['api_key'] = API_KEY
+      req.params['query'] = title
+    end
     data = JSON.parse(response.body, symbolize_names: true)
-    movie = data[:results].detect { |film| film[:original_title] == title }
+    data[:results].detect { |film| film[:title].strip.casecmp(title.strip).zero? }#rid the whitespace and ignore case
   end
 end
