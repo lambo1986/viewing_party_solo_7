@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get '/register', to: 'users#new', as: 'register_user'
 
   resources :users, only: [:show, :create] do
-    get '/discover', to: 'users#discover', on: :member#not sure if this is where I want to go with this route
+    get '/discover', to: 'users#discover', on: :member# not sure if this is where I want to go with this route
     get '/movies', to: 'users#movies', on: :member
+    resources :movies, only: [:show], controller: 'movies'# I might regret this later (maybe user_movies controller?)
   end
 end
