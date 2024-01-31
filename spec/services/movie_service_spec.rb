@@ -14,7 +14,15 @@ RSpec.describe MovieService, vcr: true do# applies vcr to all tests in this file
     it "returns the movie by title entered" do
       movie = MovieService.search("Big")
 
-      expect(movie[:original_title]).to eq("Big")#original_title
+      expect(movie[:title]).to eq("Big")
+    end
+  end
+
+  describe ".search_by_id" do
+    it "returns the movie by id entered" do
+      movie = MovieService.search_by_id(2280)
+
+      expect(movie[:title]).to eq("Big")
     end
   end
 end
