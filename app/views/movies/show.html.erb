@@ -1,1 +1,33 @@
-<%= link_to "Return to Discover", "/users/#{@user.id}/discover"%>
+<%= button_to "Return to Discover", "/users/#{@user.id}/discover", method: :get %>
+
+<h1>Movie Information</h1>
+
+<%= button_to "Create a Viewing Party", "/users/#{@user.id}/movies/#{params[:id]}/viewing_party/new", method: :get %>
+
+<h1>Summary:</h1>
+<ul>
+    <li>Title: <%= @movie[:title] %></li>
+    <li>Vote Average: <%= @movie[:vote_average] %></li>
+    <li>Vote Count: <%= @movie[:vote_count] %></li>
+    <li>Summary: <%= @movie[:overview] %></li>
+    <li>Genre: <%= MovieService.genres_of_movie(@movie[:id]) %></li>
+    <li>Runtime: <%= MovieService.runtime(@movie[:id]) %></li>  
+</ul>
+
+<h1>Cast Members:</h1>
+    <% MovieService.cast(@movie[:id]).each do |member| %>
+        <ul>
+            <li>Name: <%= member[:name] %></li>
+            <li>Character: <%= member[:character] %></li>
+        </ul>
+    <% end %>
+
+<h1>Reviews:</h1>
+<h2>Reviews Count: <%= MovieService.reviews(@movie[:id])[:total_results] %></h2>
+
+<% MovieService.reviews(@movie[:id])[:results].each do |review| %>
+    <ul>
+        <li>Review Author: <%= review[:author] %></li>
+        <li>Review Content: <%= review[:content] %></li>
+    </ul>
+<% end %>

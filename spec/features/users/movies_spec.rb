@@ -16,9 +16,9 @@ RSpec.describe "movies page for a user", type: :feature do# US-2
     click_link("Shawshank Redemption")
 
     expect(current_path).to eq("/users/#{user.id}/movies/278")
-    expect(page).to have_link("Return to Discover")
+    expect(page).to have_button("Return to Discover")
 
-    click_link("Return to Discover")
+    click_button("Return to Discover")
 
     expect(current_path).to eq("/users/#{user.id}/discover")
 
@@ -33,9 +33,9 @@ RSpec.describe "movies page for a user", type: :feature do# US-2
     click_link("Big")
 
     expect(current_path).to eq("/users/#{user.id}/movies/2280")
-    expect(page).to have_link("Return to Discover")
+    expect(page).to have_button("Return to Discover")
 
-    click_link("Return to Discover")
+    click_button("Return to Discover")
 
     expect(current_path).to eq("/users/#{user.id}/discover")
   end
