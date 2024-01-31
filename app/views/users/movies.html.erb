@@ -2,10 +2,10 @@
 
   <h1>Searched Movie:</h1>
   <% if @movie %>
-    <h3><%= @movie[:title] %></h3>
-    <h3><%= @movie[:overview] %></h3>
+    <h2>Title: <%= @movie[:title] %></h2>
+    <h3>Overview: <%= @movie[:overview] %></h3>
   <% else %>
-    <h3>No Movie Found. Please Try Again.</h3>
+    <h1>No Movie Found. Please Try Again.</h1>
   <% end %>
 
 <% elsif params[:q] == "top rated" %>
@@ -13,13 +13,10 @@
   <h1>Top 20 Movies</h1>
 
   <% @top_rated.each do |movie| %>
-    <div class="movie">
-      <h2><%= movie[:title] %></h2>
-      
-      <p><%= movie[:overview] %></p>
-    </div>
+      <h2>Title: <%= movie[:title] %></h2>
+      <h3>Overview: <%= movie[:overview] %></h3>
   <% end %>
 
   <% else %>
-    <h3>No Data to Show :( Please Try Again.</h3>
+    <h1>No Data to Show :( Please Try Again.</h1>
 <% end %>
