@@ -42,8 +42,15 @@ RSpec.describe "New Viewing Party Page", type: :feature, vcr: :true do# US-4
     click_button("Create Party")
 
     expect(current_path).to eq "/users/#{user.id}"#begin part 2 (user dashboard)
-    expect(page).to have_content("Sam")
+
+    expect(page).to have_content("Sam's Dashboard")
     expect(page).to have_content("Upcoming Viewing Party:")
-    
+    expect(page).to have_content("Party Time:")
+    expect(page).to have_content("Host: Sam")
+    expect(page).to have_content("Who's Coming?")
+    expect(page).to have_content("Sam")
+    expect(page).to have_content("Jams")
+    expect(page).to have_content("Ari")
+    expect(page).to have_content("Tok")
   end
 end
