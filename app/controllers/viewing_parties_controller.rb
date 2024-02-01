@@ -6,8 +6,16 @@ class ViewingPartiesController < ApplicationController
   end
 
   def create
-    @current_user = User.find_by_id(params[:user_id])
-    
-    redirect_to user_path(@current_user)
+    redirect_to user_path(current_user)
   end
+end
+
+private
+
+def viewing_party_params
+  params.require(:viewing_party).permit(:duration, :date, :start_time, :guest_ids)
+end
+
+def current_user
+  current_user = User.find_by_id(params[:user_id])
 end
