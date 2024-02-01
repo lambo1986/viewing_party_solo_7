@@ -19,22 +19,28 @@ class ViewingPartiesController < ApplicationController
       redirect_to "/users/#{@user.id}/movies/#{@movie[:id]}/viewing_party/new", alert: 'party duration must be greater than movie duration'
     end
   end
-end
 
-private
+  def show
+    @movie = current_movie
+    @buy_logos = MovieService.providers_buy(@movie[:id])
+    @rent_logos = MovieService.providers_rent(@movie[:id])
+  end
 
-def viewing_party_params
-  params.require(:viewing_party).permit(:duration, :date, :start_time, guest_ids: [])
-end
+  private
 
-def current_user
-  User.find_by_id(params[:user_id])
-end
+  def viewing_party_params
+    params.require(:viewing_party).permit(:duration, :date, :start_time, guest_ids: [])
+  end
 
-def current_movie
-  MovieService.search_by_id(params[:movie_id])
-end
+  def current_user
+    User.find_by_id(params[:user_id])
+  end
 
-def party_guests
-  User.where(id: params[:viewing_party][:guest_ids].reject(&:blank?))# nested ids, and skip the blank ones
+  def current_movie
+    MovieService.search_by_id(params[:movie_id])
+  end
+
+  def party_guests
+    User.where(id: params[:viewing_party][:guest_ids].reject(&:blank?))# nested ids, and skip the blank ones
+  end
 end
