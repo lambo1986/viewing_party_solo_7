@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :create] do
     get '/discover', to: 'users#discover', on: :member# not sure if this is where I want to go with this route
     get '/movies', to: 'users#movies', on: :member
-    resources :movies, only: [:show], controller: 'movies' do # I might regret this later (need user_movies controller?)
-      get '/viewing_party/new', to: 'viewing_parties#new'
+    resources :movies, only: [:show] do# I might regret this later (need user_movies controller?)
+      resource :viewing_party, only: [:new, :create]
     end
   end
 end
