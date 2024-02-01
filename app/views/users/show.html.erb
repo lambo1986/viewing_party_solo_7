@@ -1,5 +1,7 @@
 <h1><%= "#{@user.name}'s Dashboard" %></h1><br>
 
+<h2>Upcoming Viewing Party:</h2>
+
 <section class="viewing_parties">
   <% @user.viewing_parties.each do |party| %>
     <div class="viewing_party">
