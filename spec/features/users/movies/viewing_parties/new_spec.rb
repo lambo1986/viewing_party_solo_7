@@ -53,7 +53,7 @@ RSpec.describe "New Viewing Party Page", type: :feature, vcr: :true do# US-4
       expect(page).to have_content("Jams")
       expect(page).to have_content("Ari")
       expect(page).to have_content("Tok")
-      # now check the other users for the party invite 
+      # now check the other users for the party invite
       visit "/users/#{user1.id}"
 
       expect(page).to have_content("Jams's Dashboard")
@@ -106,7 +106,7 @@ RSpec.describe "New Viewing Party Page", type: :feature, vcr: :true do# US-4
         expect(page).to have_field(user3.name, type: 'checkbox')
         expect(page).to have_button("Create Party")
 
-        fill_in "Duration of Party", with: "75"
+        fill_in "Duration of Party", with: "75"#(movie is 104)
         fill_in "Date", with: "03-27-24"
         fill_in "Start Time", with: "20:00"
         check(user1.name)
