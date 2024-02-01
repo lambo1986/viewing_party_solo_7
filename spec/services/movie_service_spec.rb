@@ -79,4 +79,22 @@ RSpec.describe MovieService, vcr: true do# applies vcr to all tests in this file
       expect(reviews[:total_results]).to be_an Integer
     end
   end
+
+  describe ".providers_rent" do# US-5
+    it "returns the list of providers for renting a movie in the US" do
+      providers = MovieService.providers_rent(2280)#big
+
+      expect(providers.count).to be_a Integer#8
+      expect(providers.first).to be_a String
+    end
+  end
+
+  describe ".providers_buy" do# US-5
+    it "returns the list of providers for buying a movie in the US" do
+      providers = MovieService.providers_buy(2280)#big
+
+      expect(providers.count).to be_a Integer#8
+      expect(providers.first).to be_a String
+    end
+  end
 end
