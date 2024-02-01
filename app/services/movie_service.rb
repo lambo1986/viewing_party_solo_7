@@ -62,6 +62,24 @@ class MovieService
     end
     JSON.parse(response.body, symbolize_names: true)
   end
+
+  def self.providers_rent(movie_id)# US-5
+    conn = Faraday.new("https://api.themoviedb.org")
+    response = conn.get("/3/movie/#{movie_id}/watch/providers") do |req|
+      req.params['api_key'] = API_KEY
+    end
+    data = JSON.parse(response.body, symbolize_names: true)
+    data[:results][:US][:buy].map { |service| service[:logo_path] }
+  end
+
+  def self.providers_buy(movie_id)# US-5
+    conn = Faraday.new("https://api.themoviedb.org")
+    response = conn.get("/3/movie/#{movie_id}/watch/providers") do |req|
+      req.params['api_key'] = API_KEY
+    end
+    data = JSON.parse(response.body, symbolize_names: true)
+    data[:results][:US][:rent].map { |service| service[:logo_path] }
+  end
 end
 
 private
