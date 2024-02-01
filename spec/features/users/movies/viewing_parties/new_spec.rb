@@ -53,7 +53,7 @@ RSpec.describe "New Viewing Party Page", type: :feature, vcr: :true do# US-4
       expect(page).to have_content("Jams")
       expect(page).to have_content("Ari")
       expect(page).to have_content("Tok")
-
+      # now check the other users for the party invite 
       visit "/users/#{user1.id}"
 
       expect(page).to have_content("Jams's Dashboard")
