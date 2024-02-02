@@ -1,0 +1,11 @@
+<h1>Movies Kinda Like <%= @movie[:title] %> (based on genre and plot)</h1>
+
+<% @similar_movies.each do |movie| %>
+  <ul>
+      <li>Title: <%= movie[:title] %></li>
+      <li>Overview: <%= movie[:overview] %></li>
+      <li>Vote Average: <%= movie[:vote_average] %></li>
+      <li>Release Date: <%= movie[:release_date] %></li>
+      <li>Poster: <%= image_tag("https://media.themoviedb.org/t/p/original/#{movie[:poster_path]}", alt: 'broken image :-(', style: "max-width: 437px; max-height: 437px; height: auto; width: auto;") %></li>
+  </ul>
+<% end %>  
