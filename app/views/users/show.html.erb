@@ -1,9 +1,10 @@
 <h1><%= "#{@user.name}'s Dashboard" %></h1><br>
 
 <h2>Upcoming Viewing Party:</h2>
-
 <section class="viewing_parties">
-  <% @user.viewing_parties.each do |party| %>
+<h3>Hosted Party:</h3>
+  <% @viewing_parties_hosted.each do |party| %>
+  
     <div class="viewing_party">
         Party Time: <%= party.date %> at <%= party.start_time %><br>
         Host: <%= party.find_host.name %><br>
@@ -16,5 +17,37 @@
         </ol>
 
     </div><br>
+    <% movie = MovieService.search_by_id(party.movie_id) %>
+    <h3><%= link_to movie[:title], "/users/#{@user.id}/movies/#{movie[:id]}" %></h3><br>
+    <%= image_tag("https://media.themoviedb.org/t/p/original/#{movie[:poster_path]}", alt: 'broken image :-(', style: "max-width: 437px; max-height: 437px; height: auto; width: auto;") %></li>
   <% end %>
+================================================================================================================================
+  <h3>Attending As Guest:</h3>
+  
+  <% @viewing_parties_unhosted.each do |party| %>
+    <% if party.find_host.name != @user.name %><!-- HAHA! finally rigged something up to only show unhosted parties here -->
+      <div class="viewing_party">
+          Party Time: <%= party.date %> at <%= party.start_time %><br>
+          Host: <%= party.find_host.name %><br>
+          Who's Coming? <br/>
+
+          <ol>
+              <% party.users.each do |attendee| %>
+                <li>
+                  <% if attendee == @user %>
+                    <strong><%= attendee.name %></strong>
+                  <% else %>
+                    <%= attendee.name %>
+                  <% end %>
+                </li>
+              <% end %>
+          </ol>
+
+      </div><br>
+      <% movie = MovieService.search_by_id(party.movie_id) %>
+      <h3><%= link_to movie[:title], "/users/#{@user.id}/movies/#{movie[:id]}" %></h3><br>
+      <%= image_tag("https://media.themoviedb.org/t/p/original/#{movie[:poster_path]}", alt: 'broken image :-(', style: "max-width: 437px; max-height: 437px; height: auto; width: auto;") %></li>
+    <% end %>
+  <% end %>
+================================================================================================================================
 </section>
