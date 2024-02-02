@@ -51,10 +51,11 @@ RSpec.describe User, type: :model do
 
       viewing_party1.users << [user1, user2, user3]# sam invites Jams, Ari, Tok
       viewing_party2.users << [user, user2, user3]# jams invites sam, Ari, Tok
-
-      expect(user.viewing_parties_attended).to include(viewing_party2)
-      expect(user1.viewing_parties_attended).to include(viewing_party1)
-      expect(user2.viewing_parties_attended).to include(viewing_party1, viewing_party2)
+      # viewing_party1.add_guests([user1.id, user2.id, user3.id])
+      # viewing_party2.add_guests([user.id, user2.id, user3.id])
+      expect(user.viewing_parties_attended).to include(viewing_party2)#this should be the only one that passes
+      expect(user1.viewing_parties_attended).to include(viewing_party1)#this should not be true
+      expect(user2.viewing_parties_attended).to include(viewing_party1, viewing_party2)#nor this
     end
   end
 end
