@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/discover', to: 'users#discover', on: :member# not sure if this is where I want to go with this route
     get '/movies', to: 'users#movies', on: :member
     resources :movies, only: [:show] do# I might regret this later (need user_movies controller?)
+      resources :similar, only: [:index], controller: 'similar_movies'
       resource :viewing_party, only: [:new, :create]
       get '/viewing_party/:id', to: 'viewing_parties#show'
     end
