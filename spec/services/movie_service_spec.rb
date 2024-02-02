@@ -97,4 +97,14 @@ RSpec.describe MovieService, vcr: true do# applies vcr to all tests in this file
       expect(providers.first).to be_a String
     end
   end
+
+  describe ".similar" do# US-6
+    it "returns the list of similar movies for a movie" do
+      similar_movies = MovieService.similar(2280)#big
+
+      expect(similar_movies.count).to be_a Integer
+      expect(similar_movies.first).to be_a Hash
+      expect(similar_movies.first[:title]).to be_a String
+    end
+  end
 end

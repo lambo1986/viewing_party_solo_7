@@ -33,6 +33,19 @@ RSpec.describe "Movie's detail page", type: :feature do# US-3
 
     click_button("Create a Viewing Party")
 
-    expect(current_path).to eq "/users/#{user.id}/movies/#{2280}/viewing_party/new"
+    expect(current_path).to eq "/users/#{user.id}/movies/2280/viewing_party/new"
+  end
+
+  it "has a link to 'Get Similar Movies'" do# US-6
+    user = User.create!(name: 'Sam', email: 'sam@email.com')
+
+    visit "/users/#{user.id}/movies/2280"
+
+    expect(current_path).to eq "/users/#{user.id}/movies/2280"
+    expect(page).to have_link("Get Similar Movies")
+
+    click_link("Get Similar Movies")
+
+    expect(current_path).to eq "/users/#{user.id}/movies/2280/similar"
   end
 end

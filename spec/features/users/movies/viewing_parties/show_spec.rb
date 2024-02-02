@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "party show page", type: :feature, vcr: true do
+RSpec.describe "party show page", type: :feature, vcr: true do# US-5
   it "has logos of the services to rent or buy the movie from" do
     user = User.create!(name: 'Sam', email: 'sam@email.com')
     viewing_party = ViewingParty.create!(duration: 135, date: "2020-01-01", start_time: "12:00")
