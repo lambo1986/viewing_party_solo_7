@@ -30,4 +30,16 @@ RSpec.describe "user dashboard", type: :feature, vcr: true do
     expect(page).to have_content("Movie Information")
     expect(page).to have_content("Title: The Godfather")
   end
+
+  it "has a link to discover movies" do# added for smooth rails server experience (can get anywhere from root now)
+    user = User.create!(name: 'Sam', email: 'sam@email.com')
+
+    visit "/users/#{user.id}"
+
+    expect(page).to have_button("Discover Movies")
+
+    click_button "Discover Movies"
+
+    expect(current_path).to eq("/users/#{user.id}/discover")
+  end
 end
