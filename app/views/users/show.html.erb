@@ -8,9 +8,9 @@
   <% @viewing_parties_hosted.each do |party| %>
     <% if party.users.include?(@user) %>
       <div class="viewing_party">
-          Party Time: <%= party.date %> at <%= party.start_time %><br>
-          Host: <%= party.find_host.name %><br>
-          Who's Coming? <br/>
+        Party Time: <%= party.date %> at <%= party.start_time %><br>
+        Host: <%= party.find_host.name %><br>
+        Who's Coming? <br/>
 
           <ol>
               <% party.users.each do |attendee| %>
@@ -18,7 +18,7 @@
               <% end %>
           </ol>
 
-      </div><br>
+        </div><br>
       <% movie = MovieService.search_by_id(party.movie_id) %>
       <h3><%= link_to movie[:title], "/users/#{@user.id}/movies/#{movie[:id]}" %></h3><br>
       <%= button_to "Where to Watch", "/users/#{@user.id}/movies/#{movie[:id]}/viewing_party/#{party.id}", method: :get %>
@@ -35,19 +35,19 @@
           Host: <%= party.find_host.name %><br>
           Who's Coming? <br/>
 
-          <ol>
-              <% party.users.each do |attendee| %>
-                <li>
-                  <% if attendee == @user %>
-                    <strong><%= attendee.name %></strong>
-                  <% else %>
-                    <%= attendee.name %>
-                  <% end %>
-                </li>
-              <% end %>
-          </ol>
+            <ol>
+                <% party.users.each do |attendee| %>
+                  <li>
+                    <% if attendee == @user %>
+                      <strong><%= attendee.name %></strong>
+                    <% else %>
+                      <%= attendee.name %>
+                    <% end %>
+                  </li>
+                <% end %>
+            </ol>
 
-      </div><br>
+        </div><br>
       <% movie = MovieService.search_by_id(party.movie_id) %>
       <h3><%= link_to movie[:title], "/users/#{@user.id}/movies/#{movie[:id]}" %></h3><br>
       <%= button_to "Where to Watch", "/users/#{@user.id}/movies/#{movie[:id]}/viewing_party/#{party.id}", method: :get %>
