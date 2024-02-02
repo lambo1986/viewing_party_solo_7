@@ -80,6 +80,15 @@ class MovieService
     data = JSON.parse(response.body, symbolize_names: true)
     data[:results][:US][:rent].map { |service| service[:logo_path] }
   end
+
+  def self.similar(movie_id)# US-6
+    conn = Faraday.new("https://api.themoviedb.org")
+    response = conn.get("/3/movie/#{movie_id}/similar") do |req|
+      req.params['api_key'] = API_KEY
+    end
+    data = JSON.parse(response.body, symbolize_names: true)
+    data[:results]
+  end
 end
 
 private
