@@ -1,20 +1,21 @@
-<h2>Where to Buy:</h2>
+<h1>Where to Watch <%= @movie[:title] %>?</h1>
 <h3>(Data Attribution: Buy/Rent data provided by JustWatch)</h3>
 ----------------------------------------------------------------
-<h1>Where to Watch <%= @movie[:title] %>?</h1>
+<h2>Where to Buy:</h2>
 
   <% @buy_logos.each do |provider| %>
     <ul>
       <li><%= image_tag("https://media.themoviedb.org/t/p/original/#{provider}", alt: 'provider') %></li>
     </ul>
   <% end %>
-  ----------------------------------------------------------------
+----------------------------------------------------------------
 <h2>Where to Rent:</h2>
+
   <% @rent_logos.each do |provider| %>
     <ul>
       <li><%= image_tag("https://media.themoviedb.org/t/p/original/#{provider}", alt: 'provider') %></li>
     </ul>
   <% end %>
-  ----------------------------------------------------------------
+----------------------------------------------------------------
 
 
