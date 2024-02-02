@@ -1,0 +1,129 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/2280?api_key=e1c26902efd7893644587d792188237b&query=2280
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 5e75b851c2081c6bde13845e675308d4
+      X-Memc-Age:
+      - '333'
+      X-Memc-Expires:
+      - '25137'
+      Date:
+      - Thu, 01 Feb 2024 22:10:39 GMT
+      Cache-Control:
+      - public, max-age=25182
+      Etag:
+      - W/"6e200b67a69700fae635edf56cb90245"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 6407b86e5baafe7d37861f17c38bd09c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - ATL58-P2
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - vLF-a8xCCvxx1FUTghLkKCMza84I8sYO3-KorqQtkNS-8FY2tYaJjw==
+      Age:
+      - '18845'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIvZEdiQm5UWXhkSGYxcXlVZ0hzdUZweG4xSzRFLmpwZyIsImJlbG9uZ3NfdG9fY29sbGVjdGlvbiI6bnVsbCwiYnVkZ2V0IjoxODAwMDAwMCwiZ2VucmVzIjpbeyJpZCI6MTQsIm5hbWUiOiJGYW50YXN5In0seyJpZCI6MTgsIm5hbWUiOiJEcmFtYSJ9LHsiaWQiOjM1LCJuYW1lIjoiQ29tZWR5In0seyJpZCI6MTA3NDksIm5hbWUiOiJSb21hbmNlIn0seyJpZCI6MTA3NTEsIm5hbWUiOiJGYW1pbHkifV0sImhvbWVwYWdlIjoiIiwiaWQiOjIyODAsImltZGJfaWQiOiJ0dDAwOTQ3MzciLCJvcmlnaW5hbF9sYW5ndWFnZSI6ImVuIiwib3JpZ2luYWxfdGl0bGUiOiJCaWciLCJvdmVydmlldyI6IldoZW4gYSB5b3VuZyBib3kgbWFrZXMgYSB3aXNoIGF0IGEgY2Fybml2YWwgbWFjaGluZSB0byBiZSBiaWfigJRoZSB3YWtlcyB1cCB0aGUgZm9sbG93aW5nIG1vcm5pbmcgdG8gZmluZCB0aGF0IGl0IGhhcyBiZWVuIGdyYW50ZWQgYW5kIGhpcyBib2R5IGhhcyBncm93biBvbGRlciBvdmVybmlnaHQuIEJ1dCBoZSBpcyBzdGlsbCB0aGUgc2FtZSAxMy15ZWFyLW9sZCBib3kgaW5zaWRlLiBOb3cgaGUgbXVzdCBsZWFybiBob3cgdG8gY29wZSB3aXRoIHRoZSB1bmZhbWlsaWFyIHdvcmxkIG9mIGdyb3duLXVwcyBpbmNsdWRpbmcgZ2V0dGluZyBhIGpvYiBhbmQgaGF2aW5nIGhpcyBmaXJzdCByb21hbnRpYyBlbmNvdW50ZXIgd2l0aCBhIHdvbWFuLiIsInBvcHVsYXJpdHkiOjI2LjQwMywicG9zdGVyX3BhdGgiOiIvZVdoQ0RKaXd4dngzWVhrQUZSaUhqaW1uRjBqLmpwZyIsInByb2R1Y3Rpb25fY29tcGFuaWVzIjpbeyJpZCI6MjE0NTEsImxvZ29fcGF0aCI6bnVsbCwibmFtZSI6IkFtZXJpY2FuIEVudGVydGFpbm1lbnQgUGFydG5lcnMgSUkgTC5QLiIsIm9yaWdpbl9jb3VudHJ5IjoiIn0seyJpZCI6MTgsImxvZ29fcGF0aCI6Ii91cWhhZ1N3TTdOQWtRV1ZDUWhLVHlvcUY4WEgucG5nIiwibmFtZSI6IkdyYWNpZSBGaWxtcyIsIm9yaWdpbl9jb3VudHJ5IjoiVVMifSx7ImlkIjoyNSwibG9nb19wYXRoIjoiL3FaQ2MxbHR5NUZ6WDMwYU9DVlJCTHphVm1jcC5wbmciLCJuYW1lIjoiMjB0aCBDZW50dXJ5IEZveCIsIm9yaWdpbl9jb3VudHJ5IjoiVVMifV0sInByb2R1Y3Rpb25fY291bnRyaWVzIjpbeyJpc29fMzE2Nl8xIjoiVVMiLCJuYW1lIjoiVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIn1dLCJyZWxlYXNlX2RhdGUiOiIxOTg4LTA2LTAzIiwicmV2ZW51ZSI6MTUxOTI3MjgxLCJydW50aW1lIjoxMDQsInNwb2tlbl9sYW5ndWFnZXMiOlt7ImVuZ2xpc2hfbmFtZSI6IkVuZ2xpc2giLCJpc29fNjM5XzEiOiJlbiIsIm5hbWUiOiJFbmdsaXNoIn1dLCJzdGF0dXMiOiJSZWxlYXNlZCIsInRhZ2xpbmUiOiJIYXZlIHlvdSBldmVyIGhhZCBhIHJlYWxseSBiaWcgc2VjcmV0PyIsInRpdGxlIjoiQmlnIiwidmlkZW8iOmZhbHNlLCJ2b3RlX2F2ZXJhZ2UiOjcuMTYzLCJ2b3RlX2NvdW50IjozMzg0fQ==
+  recorded_at: Fri, 02 Feb 2024 03:24:44 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/238?api_key=e1c26902efd7893644587d792188237b&query=238
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 02 Feb 2024 03:24:44 GMT
+      Server:
+      - openresty
+      Cache-Control:
+      - public, max-age=10492
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 4f4d3badf3c9d576e4abc7160d5da6a0
+      X-Memc-Age:
+      - '13853'
+      X-Memc-Expires:
+      - '10492'
+      Etag:
+      - W/"ddcc553765cd047860e34b6b40e0b85d"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 f191c7ddc7f4299b09e1d20e7caf0344.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - ATL58-P2
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - 1dhpq_EKYdchnXTLTJKBVJ4tLsVcHe77ZpCtwxhWO7GGtWtq8CNDUg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":"/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg","belongs_to_collection":{"id":230,"name":"The
+        Godfather Collection","poster_path":"/zqV8MGXfpLZiFVObLxpAI7wWonJ.jpg","backdrop_path":"/mDMCET9Ens5ANvZAWRpluBsMAtS.jpg"},"budget":6000000,"genres":[{"id":18,"name":"Drama"},{"id":80,"name":"Crime"}],"homepage":"http://www.thegodfather.com/","id":238,"imdb_id":"tt0068646","original_language":"en","original_title":"The
+        Godfather","overview":"Spanning the years 1945 to 1955, a chronicle of the
+        fictional Italian-American Corleone crime family. When organized crime family
+        patriarch, Vito Corleone barely survives an attempt on his life, his youngest
+        son, Michael steps in to take care of the would-be killers, launching a campaign
+        of bloody revenge.","popularity":118.977,"poster_path":"/3bhkrj58Vtu7enYsRolD1fZdja1.jpg","production_companies":[{"id":4,"logo_path":"/gz66EfNoYPqHTYI4q9UEN4CbHRc.png","name":"Paramount","origin_country":"US"},{"id":10211,"logo_path":null,"name":"Alfran
+        Productions","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
+        States of America"}],"release_date":"1972-03-14","revenue":245066411,"runtime":175,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"},{"english_name":"Italian","iso_639_1":"it","name":"Italiano"},{"english_name":"Latin","iso_639_1":"la","name":"Latin"}],"status":"Released","tagline":"An
+        offer you can''t refuse.","title":"The Godfather","video":false,"vote_average":8.708,"vote_count":19377}'
+  recorded_at: Fri, 02 Feb 2024 03:24:44 GMT
+recorded_with: VCR 6.2.0
