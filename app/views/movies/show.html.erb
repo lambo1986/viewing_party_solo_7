@@ -14,6 +14,8 @@
     <li>Runtime: <%= MovieService.runtime(@movie[:id]) %></li>  
 </ul>
 
+<%= link_to "Get Similar Movies", "/users/#{@user.id}/movies/#{@movie[:id]}/similar", method: :get %>
+
 <h1>Cast Members:</h1>
     <% MovieService.cast(@movie[:id]).each do |member| %>
         <ul>
