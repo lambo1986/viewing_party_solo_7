@@ -6,7 +6,6 @@
 <section class="viewing_parties">
 <h3>Hosted Party:</h3>
   <% @viewing_parties_hosted.each do |party| %>
-  
     <div class="viewing_party">
         Party Time: <%= party.date %> at <%= party.start_time %><br>
         Host: <%= party.find_host.name %><br>
@@ -21,6 +20,7 @@
     </div><br>
     <% movie = MovieService.search_by_id(party.movie_id) %>
     <h3><%= link_to movie[:title], "/users/#{@user.id}/movies/#{movie[:id]}" %></h3><br>
+    <%= button_to "Where to Watch", "/users/#{@user.id}/movies/#{movie[:id]}/viewing_party/#{party.id}", method: :get %>
     <%= image_tag("https://media.themoviedb.org/t/p/original/#{movie[:poster_path]}", alt: 'broken image :-(', style: "max-width: 437px; max-height: 437px; height: auto; width: auto;") %></li>
   <% end %>
 ================================================================================================================================
@@ -48,6 +48,7 @@
       </div><br>
       <% movie = MovieService.search_by_id(party.movie_id) %>
       <h3><%= link_to movie[:title], "/users/#{@user.id}/movies/#{movie[:id]}" %></h3><br>
+      <%= button_to "Where to Watch", "/users/#{@user.id}/movies/#{movie[:id]}/viewing_party/#{party.id}", method: :get %>
       <%= image_tag("https://media.themoviedb.org/t/p/original/#{movie[:poster_path]}", alt: 'broken image :-(', style: "max-width: 437px; max-height: 437px; height: auto; width: auto;") %></li>
     <% end %>
   <% end %>
