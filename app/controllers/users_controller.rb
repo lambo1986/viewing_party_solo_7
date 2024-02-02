@@ -6,8 +6,8 @@ class UsersController < ApplicationController
 
    def show
       @user = User.find(params[:id])
-      @viewing_parties_hosted = @user.hosted_viewing_parties
-      @viewing_parties_unhosted = @user.viewing_parties_attended
+      @viewing_parties_hosted = @user.hosted_viewing_parties#US-7
+      @viewing_parties_unhosted = @user.viewing_parties_attended#US-7
    end
 
    def movies
