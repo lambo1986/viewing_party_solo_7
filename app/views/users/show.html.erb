@@ -26,26 +26,26 @@
     <% end %>
   <% end %>
 ================================================================================================================================
-  <h3>Attending As Guest:</h3>
-  
-  <% @viewing_parties_unhosted.each do |party| %>
-    <% if party.find_host.name != @user.name && party.users.include?(@user) %><!-- HAHA! finally rigged something up to only show unhosted parties here -->
-      <div class="viewing_party">
-          Party Time: <%= party.date %> at <%= party.start_time %><br>
-          Host: <%= party.find_host.name %><br>
-          Who's Coming? <br/>
+<h3>Attending As Guest:</h3>
 
-            <ol>
-                <% party.users.each do |attendee| %>
-                  <li>
-                    <% if attendee == @user %>
-                      <strong><%= attendee.name %></strong>
-                    <% else %>
-                      <%= attendee.name %>
-                    <% end %>
-                  </li>
-                <% end %>
-            </ol>
+<% @viewing_parties_unhosted.each do |party| %>
+  <% if party.find_host.name != @user.name && party.users.include?(@user) %><!-- HAHA! finally rigged something up to only show unhosted parties here -->
+    <div class="viewing_party">
+        Party Time: <%= party.date %> at <%= party.start_time %><br>
+        Host: <%= party.find_host.name %><br>
+        Who's Coming? <br/>
+
+          <ol>
+              <% party.users.each do |attendee| %>
+                <li>
+                  <% if attendee == @user %>
+                    <strong><%= attendee.name %></strong>
+                  <% else %>
+                    <%= attendee.name %>
+                  <% end %>
+                </li>
+              <% end %>
+          </ol>
 
         </div><br>
       <% movie = MovieService.search_by_id(party.movie_id) %>
