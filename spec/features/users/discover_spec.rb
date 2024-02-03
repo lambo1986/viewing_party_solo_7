@@ -1,9 +1,9 @@
-require "rails_helper"#why this over spec_helper?
+require "rails_helper"
 
 RSpec.describe "user's discover page (/users/:id/discover)", type: :feature do# US-1
   describe "discover and search" do
     it "allows users to search for a movie by title or discover top rated movies" do
-      user = User.create!(name: 'Sam', email: 'sam@email.com')# needed this line to create a user to test against
+      user = User.create!(name: 'Sam', email: 'sam@email.com')
       visit "/users/#{user.id}/discover"
 
       expect(page).to have_button("Top 20 Movies")
