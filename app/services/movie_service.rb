@@ -1,5 +1,6 @@
 class MovieService
   API_KEY = Rails.application.credentials.tmdb[:api_key]
+  BASE_URL = "https://api.themoviedb.org"
 
   class << self
 
@@ -82,6 +83,12 @@ class MovieService
       data = JSON.parse(response.body, symbolize_names: true)
       data[:results]
     end
+
+    private
+
+    def conn
+      Faraday.new(url: BASE_URL)
+    end
   end
 end
 
@@ -91,8 +98,4 @@ def format_runtime(minutes)# US-3 (move to facade or PORO)
   hours = minutes / 60
   remainder = minutes % 60
   "#{hours}hr #{remainder}min"
-end
-
-def conn
-  conn = Faraday.new(url: "https://api.themoviedb.org")
 end
