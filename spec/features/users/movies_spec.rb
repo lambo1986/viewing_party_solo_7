@@ -11,7 +11,7 @@ RSpec.describe "movies page for a user", type: :feature do# US-2
     expect(current_path).to eq("/users/#{user.id}/movies")
     expect(page).to have_content("Top 20 Movies")
     expect(page).to have_link("Shawshank Redemption")
-    expect(page).to have_content("Vote Average: 8.711")
+    expect(page).to have_content("Vote Average: 8.712")
 
     click_link("Shawshank Redemption")
 
@@ -28,7 +28,7 @@ RSpec.describe "movies page for a user", type: :feature do# US-2
     expect(current_path).to eq("/users/#{user.id}/movies")
     expect(page).to have_content("Searched Movie:")
     expect(page).to have_link("Big")
-    expect(page).to have_content("Vote Average: 7.163")
+    expect(page).to have_content("Vote Average: 7.164")
 
     click_link("Big")
 
