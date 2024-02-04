@@ -24,38 +24,40 @@ http_interactions:
       - chunked
       Connection:
       - keep-alive
+      Date:
+      - Sun, 04 Feb 2024 14:10:03 GMT
       Server:
       - openresty
+      Cache-Control:
+      - public, max-age=14920
       X-Memc:
       - HIT
       X-Memc-Key:
       - f781971c95c323df5625e30d17cbce76
       X-Memc-Age:
-      - '23486'
+      - '7738'
       X-Memc-Expires:
-      - '4358'
-      Date:
-      - Wed, 31 Jan 2024 22:55:31 GMT
-      Cache-Control:
-      - public, max-age=18219
+      - '14920'
       Etag:
       - W/"98d6f4fb3a0e0c77544a7277f32baebb"
       Vary:
       - Accept-Encoding
       - Origin
       X-Cache:
-      - RefreshHit from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 4dd647f2c0221dd5d8526e120eae7942.cloudfront.net (CloudFront)
+      - 1.1 71e426c54a0240fb6bb38c242d378078.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - ATL58-P2
       Alt-Svc:
       - h3=":443"; ma=86400
       X-Amz-Cf-Id:
-      - c-64t3UW-n0teZQZwkh4WuV3TkUBl7YVT_QzFl7lrLUxp4jKObzQWA==
+      - qZXD3j9gS_tsQJbpvbrVJQuP94c1YD1x0HQTFsgCGNNkl5QwTVBtgA==
+      Age:
+      - '1433'
     body:
       encoding: ASCII-8BIT
       string: '{"genres":[{"id":28,"name":"Action"},{"id":12,"name":"Adventure"},{"id":16,"name":"Animation"},{"id":35,"name":"Comedy"},{"id":80,"name":"Crime"},{"id":99,"name":"Documentary"},{"id":18,"name":"Drama"},{"id":10751,"name":"Family"},{"id":14,"name":"Fantasy"},{"id":36,"name":"History"},{"id":27,"name":"Horror"},{"id":10402,"name":"Music"},{"id":9648,"name":"Mystery"},{"id":10749,"name":"Romance"},{"id":878,"name":"Science
         Fiction"},{"id":10770,"name":"TV Movie"},{"id":53,"name":"Thriller"},{"id":10752,"name":"War"},{"id":37,"name":"Western"}]}'
-  recorded_at: Wed, 31 Jan 2024 22:55:31 GMT
+  recorded_at: Sun, 04 Feb 2024 14:33:56 GMT
 recorded_with: VCR 6.2.0
