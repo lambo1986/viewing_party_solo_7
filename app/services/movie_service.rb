@@ -5,9 +5,8 @@ class MovieService
   class << self
 
     def top_rated
-      response = conn.get("/3/movie/top_rated?api_key=#{API_KEY}")
-      data = JSON.parse(response.body, symbolize_names: true)
-      movies = data[:results]
+      data = get_url("/3/movie/top_rated")
+      data[:results]
     end
 
     def search(title)
@@ -89,6 +88,15 @@ class MovieService
     def conn
       Faraday.new(url: BASE_URL)
     end
+
+    def get_url(path)
+      response = conn.get(path) do |req|
+        req.params['api_key'] = API_KEY
+      end
+      JSON.parse(response.body, symbolize_names: true)
+    end
+
+
   end
 end
 
