@@ -27,10 +27,7 @@ class MovieService
     end
 
     def genres_all# US-3
-      response = conn.get("/3/genre/movie/list") do |req|# input movie id and user key
-        req.params['api_key'] = API_KEY
-      end
-      data = JSON.parse(response.body, symbolize_names: true)
+      data = get_url("/3/genre/movie/list")
       data[:genres]
     end
 
