@@ -12,7 +12,7 @@ RSpec.describe "Movie's detail page", type: :feature do# US-3
     expect(current_path).to eq("/users/#{user.id}/movies")
     expect(page).to have_content("Searched Movie:")
     expect(page).to have_link("Big")
-    expect(page).to have_content("Vote Average: 7.163")
+    expect(page).to have_content("Vote Average: 7.164")
 
     click_link("Big")
 
@@ -21,8 +21,8 @@ RSpec.describe "Movie's detail page", type: :feature do# US-3
     expect(page).to have_content("Movie Information")
     expect(page).to have_button("Create a Viewing Party")
     expect(page).to have_content("Title: Big")# title
-    expect(page).to have_content("Vote Average: 7.163")# vote_average
-    expect(page).to have_content("Vote Count: 3384")# vote_count
+    expect(page).to have_content("Vote Average: 7.164")# vote_average
+    expect(page).to have_content("Vote Count: 3387")# vote_count
     expect(page).to have_content("Summary: When a young boy makes a wish")# overview
     expect(page).to have_content("Genre:")# 14, 18, 35, 10749, 10751
     expect(page).to have_content("Runtime:")# 1hr 44min

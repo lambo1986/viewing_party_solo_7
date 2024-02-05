@@ -8,7 +8,7 @@ RSpec.describe ViewingParty, type: :model do
       UserParty.create!(user_id: @user_1.id, viewing_party_id: @party.id, host: true)
       UserParty.create!(user_id: @user_2.id, viewing_party_id: @party.id, host: false)
   end
-  
+
   describe 'relationships' do
       it { should have_many :user_parties }
       it { should have_many(:users).through(:user_parties) }
