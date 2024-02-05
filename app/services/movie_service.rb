@@ -38,7 +38,7 @@ class MovieService
 
     def runtime(movie_id)# US-3
       movie = search_by_id(movie_id)
-      format_runtime(movie[:runtime])
+      MovieFacade.format_runtime(movie[:runtime])
     end
 
     def cast(movie_id)# US-3
@@ -78,12 +78,4 @@ class MovieService
       JSON.parse(response.body, symbolize_names: true)
     end
   end
-end
-
-private
-
-def format_runtime(minutes)# US-3 (move to facade or PORO)
-  hours = minutes / 60
-  remainder = minutes % 60
-  "#{hours}hr #{remainder}min"
 end
