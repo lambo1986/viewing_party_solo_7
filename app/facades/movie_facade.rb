@@ -1,15 +1,14 @@
 class MovieFacade
+
+  attr_reader :search_param
+
   def initialize(search_param = nil)
     @search_param = search_param
   end
 
-  def movies
-    if @search_param.present?
-      search_results = MovieService.search(@search_param)
-      search_results.map { |movie_data| Movie.new(movie_data) }
-    else
-      top_rated_movies = MovieService.top_rated
-      top_rated_movies.map { |movie_data| Movie.new(movie_data) }
-    end
+  def self.format_runtime(minutes)# US-3 (move to facade or PORO)
+    hours = minutes / 60
+    remainder = minutes % 60
+    "#{hours}hr #{remainder}min"
   end
 end
