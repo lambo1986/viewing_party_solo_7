@@ -1,9 +1,11 @@
 class User < ApplicationRecord
-   validates_presence_of :name, :email
+   validates_presence_of :name
    validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
    has_many :user_parties
    has_many :viewing_parties, through: :user_parties
+
+   has_secure_password
 
    def hosted_viewing_parties
       ViewingParty.joins(:user_parties).where(user_parties: { user_id: id, host: true }).distinct
