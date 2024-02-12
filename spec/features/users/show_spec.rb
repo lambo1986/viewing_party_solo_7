@@ -2,10 +2,10 @@ require "rails_helper"
 
 RSpec.describe "user dashboard", type: :feature, vcr: true do
   it "has parties user has been invited to with details and a link to the movie" do# US-7
-    user = User.create!(name: 'Sam', email: 'sam@email.com')
-    user1 = User.create!(name: 'Jams', email: 'jams@email.com')
-    user2 = User.create!(name: 'Ari', email: 'ari@email.com')
-    user3 = User.create!(name: 'Tok', email: 'tok@email.com')
+    user = User.create!(name: 'Sam', email: 'sam@email.com', password: 'password123', password_confirmation: 'password123')
+    user1 = User.create!(name: 'Jams', email: 'jams@email.com', password: 'password123', password_confirmation: 'password123')
+    user2 = User.create!(name: 'Ari', email: 'ari@email.com', password: 'password123', password_confirmation: 'password123')
+    user3 = User.create!(name: 'Tok', email: 'tok@email.com', password: 'password123', password_confirmation: 'password123')
     movie1 = MovieService.search_by_id(2280)#big
     movie2 = MovieService.search_by_id(238)#godfather
     viewing_party1 = ViewingParty.create!(duration: 135, date: "2020-01-01", start_time: "12:00", movie_id: 2280)#sam
@@ -32,7 +32,7 @@ RSpec.describe "user dashboard", type: :feature, vcr: true do
   end
 
   it "has a button to discover movies" do# added for smooth rails server experience (can get anywhere from root now)
-    user = User.create!(name: 'Sam', email: 'sam@email.com')
+    user = User.create!(name: 'Sam', email: 'sam@email.com', password: 'password123', password_confirmation: 'password123')
 
     visit "/users/#{user.id}"
 
@@ -44,10 +44,10 @@ RSpec.describe "user dashboard", type: :feature, vcr: true do
   end
 
   it "has a button to see where to rent or buy movie" do
-    user = User.create!(name: 'Sam', email: 'sam@email.com')
-    user1 = User.create!(name: 'Jams', email: 'jams@email.com')
-    user2 = User.create!(name: 'Ari', email: 'ari@email.com')
-    user3 = User.create!(name: 'Tok', email: 'tok@email.com')
+    user = User.create!(name: 'Sam', email: 'sam@email.com', password: 'password123', password_confirmation: 'password123')
+    user1 = User.create!(name: 'Jams', email: 'jams@email.com', password: 'password123', password_confirmation: 'password123')
+    user2 = User.create!(name: 'Ari', email: 'ari@email.com', password: 'password123', password_confirmation: 'password123')
+    user3 = User.create!(name: 'Tok', email: 'tok@email.com', password: 'password123', password_confirmation: 'password123')
     movie1 = MovieService.search_by_id(2280)#big
     movie2 = MovieService.search_by_id(238)#godfather
     viewing_party1 = ViewingParty.create!(duration: 135, date: "2020-01-01", start_time: "12:00", movie_id: 2280)#sam

@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "movies page for a user", type: :feature do# US-2
   it "shows a list of top 20 movies, or a movie from the search on the discover page", :vcr do
-    user = User.create!(name: 'Sam', email: 'sam@email.com')
+    user = User.create!(name: 'Sam', email: 'sam@email.com', password: 'password123', password_confirmation: 'password123')
     visit "/users/#{user.id}/discover"
 
     expect(page).to have_button("Top 20 Movies")

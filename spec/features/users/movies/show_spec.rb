@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Movie's detail page", type: :feature do# US-3
   it "has a button to go back to the discover page, a button to create a viewing party, and many movie details", :vcr do
-    user = User.create!(name: 'Sam', email: 'sam@email.com')
+    user = User.create!(name: 'Sam', email: 'sam@email.com', password: 'password123', password_confirmation: 'password123')
 
     visit("/users/#{user.id}/discover")
 
@@ -37,7 +37,7 @@ RSpec.describe "Movie's detail page", type: :feature do# US-3
   end
 
   it "has a link to 'Get Similar Movies'" do# US-6
-    user = User.create!(name: 'Sam', email: 'sam@email.com')
+    user = User.create!(name: 'Sam', email: 'sam@email.com', password: 'password123', password_confirmation: 'password123')
 
     visit "/users/#{user.id}/movies/2280"
 

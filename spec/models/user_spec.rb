@@ -5,11 +5,12 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of :name }
     it { should validate_presence_of :email }
     it { should validate_uniqueness_of :email }
+    it { should validate_presence_of :password }
+    it { should have_secure_password }
     it { should allow_value('something@something.something').for(:email) }
     it { should_not allow_value('something somthing@something.something').for(:email) }
     it { should_not allow_value('something.something@').for(:email) }
     it { should_not allow_value('something').for(:email) }
-
   end
 
   describe 'associations' do
@@ -19,10 +20,10 @@ RSpec.describe User, type: :model do
 
   describe "instance methods" do
     it "has a #hosted_viewing_parties method" do
-      user = User.create!(name: 'Sam', email: 'sam@email.com')
-      user1 = User.create!(name: 'Jams', email: 'jams@email.com')
-      user2 = User.create!(name: 'Ari', email: 'ari@email.com')
-      user3 = User.create!(name: 'Tok', email: 'tok@email.com')
+      user = User.create!(name: 'Sam', email: 'sam@email.com', password: 'testpassword', password_confirmation: 'testpassword')
+      user1 = User.create!(name: 'Jams', email: 'jams@email.com', password: 'testpassword', password_confirmation: 'testpassword')
+      user2 = User.create!(name: 'Ari', email: 'ari@email.com', password: 'testpassword', password_confirmation: 'testpassword')
+      user3 = User.create!(name: 'Tok', email: 'tok@email.com', password: 'testpassword', password_confirmation: 'testpassword')
       movie1 = MovieService.search_by_id(2280)#big
       movie2 = MovieService.search_by_id(238)#godfather
       viewing_party1 = ViewingParty.create!(duration: 135, date: "2020-01-01", start_time: "12:00", movie_id: 2280)#sam
@@ -38,10 +39,10 @@ RSpec.describe User, type: :model do
     end
 
     it "has a #viewing_parties_attended method" do
-      user = User.create!(name: 'Sam', email: 'sam@email.com')
-      user1 = User.create!(name: 'Jams', email: 'jams@email.com')
-      user2 = User.create!(name: 'Ari', email: 'ari@email.com')
-      user3 = User.create!(name: 'Tok', email: 'tok@email.com')
+      user = User.create!(name: 'Sam', email: 'sam@email.com', password: 'testpassword', password_confirmation: 'testpassword')
+      user1 = User.create!(name: 'Jams', email: 'jams@email.com', password: 'testpassword', password_confirmation: 'testpassword')
+      user2 = User.create!(name: 'Ari', email: 'ari@email.com', password: 'testpassword', password_confirmation: 'testpassword')
+      user3 = User.create!(name: 'Tok', email: 'tok@email.com', password: 'testpassword', password_confirmation: 'testpassword')
       movie1 = MovieService.search_by_id(2280)#big
       movie2 = MovieService.search_by_id(238)#godfather
       viewing_party1 = ViewingParty.create!(duration: 135, date: "2020-01-01", start_time: "12:00", movie_id: 2280)#sam

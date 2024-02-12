@@ -3,10 +3,10 @@ require "rails_helper"
 RSpec.describe "New Viewing Party Page", type: :feature, vcr: :true do# US-4
   describe "happy path" do
     it "Shows the movie title that the party is for" do
-      user = User.create!(name: 'Sam', email: 'sam@email.com')
-      user1 = User.create!(name: 'Jams', email: 'jams@email.com')
-      user2 = User.create!(name: 'Ari', email: 'ari@email.com')
-      user3 = User.create!(name: 'Tok', email: 'tok@email.com')
+      user = User.create!(name: 'Sam', email: 'sam@email.com', password: 'password123', password_confirmation: 'password123')
+      user1 = User.create!(name: 'Jams', email: 'jams@email.com', password: 'password123', password_confirmation: 'password123')
+      user2 = User.create!(name: 'Ari', email: 'ari@email.com', password: 'password123', password_confirmation: 'password123')
+      user3 = User.create!(name: 'Tok', email: 'tok@email.com', password: 'password123', password_confirmation: 'password123')
       visit("/users/#{user.id}/discover")
 
       fill_in "search", with: "Big"
@@ -75,10 +75,10 @@ RSpec.describe "New Viewing Party Page", type: :feature, vcr: :true do# US-4
 
     describe "sad path (movie duration is greater than party duration)" do# US-4
       it "returns an error" do
-        user = User.create!(name: 'Sam', email: 'sam@email.com')
-        user1 = User.create!(name: 'Jams', email: 'jams@email.com')
-        user2 = User.create!(name: 'Ari', email: 'ari@email.com')
-        user3 = User.create!(name: 'Tok', email: 'tok@email.com')
+        user = User.create!(name: 'Sam', email: 'sam@email.com', password: 'password123', password_confirmation: 'password123')
+        user1 = User.create!(name: 'Jams', email: 'jams@email.com', password: 'password123', password_confirmation: 'password123')
+        user2 = User.create!(name: 'Ari', email: 'ari@email.com', password: 'password123', password_confirmation: 'password123')
+        user3 = User.create!(name: 'Tok', email: 'tok@email.com', password: 'password123', password_confirmation: 'password123')
         visit("/users/#{user.id}/discover")
 
         fill_in "search", with: "Big"

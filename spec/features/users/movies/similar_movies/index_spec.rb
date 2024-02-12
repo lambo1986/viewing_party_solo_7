@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Similar Movies", type: :feature, vcr: true do
   it "shows similar movies to the one from the movie details page" do# US-6
-    user = User.create!(name: 'Sam', email: 'sam@email.com')
+    user = User.create!(name: 'Sam', email: 'sam@email.com', password: 'password123', password_confirmation: 'password123')
 
     visit "/users/#{user.id}/movies/2280/similar"
 
