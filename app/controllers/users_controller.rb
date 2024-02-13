@@ -30,9 +30,28 @@ class UsersController < ApplicationController
       end
    end
 
-private
+   def login_form
 
-def user_params
+   end
+
+   def login_user
+      @user = User.find_by(name: params[:username])
+      if authenticate
+         flash[:success] = "Hello, #{@user.name}!"
+         redirect_to user_path(@user)
+      else
+         flash[:error] = "Invalid Username or Password"
+         render :login_form
+      end
+   end
+
+   private
+
+   def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+   end
+
+   def authenticate
+      @user.authenticate(params[:password]) && @user.authenticate(params[:confirmation_password])
    end
 end
