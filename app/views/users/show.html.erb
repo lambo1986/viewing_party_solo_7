@@ -1,7 +1,8 @@
+<%= cookies.signed[:location] %>
+<%= button_to "Log Out", login_path, method: :get %>
 <h1><%= "#{@user.name}'s Dashboard" %></h1><br>
 
 <%= button_to "Discover Movies", "/users/#{@user.id}/discover", method: :get %>
-
 <h2>Upcoming Viewing Party:</h2>
 <section class="viewing_parties">
 <h3>Hosted Party:</h3>

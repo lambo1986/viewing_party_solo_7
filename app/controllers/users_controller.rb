@@ -38,7 +38,15 @@ class UsersController < ApplicationController
       @user = User.find_by(email: params[:email])
       if @user && authenticate?
          flash[:success] = "Hello, #{@user.name}!"
-         redirect_to user_path(@user)
+         cookies.signed[:location] = params[:location]
+         redirect_path = if @user.admin?
+                           admin_dashboard_path
+                        elsif @user.manager?
+                           root_path
+                        else
+                           user_path(@user)#original redirect
+                        end
+         redirect_to redirect_path and return
       else
          flash[:error] = "Invalid Username or Password"
          render :login_form
@@ -48,7 +56,7 @@ class UsersController < ApplicationController
    private
 
    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :location)
    end
 
    def authenticate?

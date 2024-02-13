@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
    has_secure_password
 
+   enum role: %w(default manager admin)
+
    def hosted_viewing_parties
       ViewingParty.joins(:user_parties).where(user_parties: { user_id: id, host: true }).distinct
    end

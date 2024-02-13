@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get '/register', to: 'users#new', as: 'register_user'
   get '/login', to:'users#login_form'
   post '/login', to:'users#login_user'
+  namespace :admin do
+    get '/dashboard', to: 'dashboard#index'
+  end
   resources :users, only: [:show, :create] do
     get '/discover', to: 'users#discover', on: :member# not sure if this is where I want to go with this route
     get '/movies', to: 'users#movies', on: :member
