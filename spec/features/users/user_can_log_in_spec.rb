@@ -12,9 +12,8 @@ RSpec.describe "Loggin in", type: :feature do
 
     expect(current_path).to eq(login_path)
 
-    fill_in "Username:", with: user.name
+    fill_in "Email:", with: user.email
     fill_in "Password:", with: user.password
-    fill_in "Confirm Password:", with: user.password
 
     click_button "Log In"
 
@@ -33,9 +32,8 @@ RSpec.describe "Loggin in", type: :feature do
 
     expect(current_path).to eq(login_path)
 
-    fill_in "Username:", with: user.name
-    fill_in "Password:", with: user.password
-    fill_in "Confirm Password:", with: "doodah?"
+    fill_in "Email:", with: user.email
+    fill_in "Password:", with: "oof-doof"
 
     click_button "Log In"
 
