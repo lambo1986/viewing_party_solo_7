@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/register', to: 'users#new', as: 'register_user'
   get '/login', to:'users#login_form'
   post '/login', to:'users#login_user'
+  delete '/logout', to:'users#logout_user'
   namespace :admin do
     get '/dashboard', to: 'dashboard#index'
   end

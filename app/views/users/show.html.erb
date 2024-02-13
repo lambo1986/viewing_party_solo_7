@@ -1,5 +1,9 @@
 <%= cookies.signed[:location] %>
-<%= button_to "Log Out", login_path, method: :get %>
+
+<% if current_user %>
+  <%= button_to "Log Out", logout_path, method: :delete %>
+<% end %>
+
 <h1><%= "#{@user.name}'s Dashboard" %></h1><br>
 
 <%= button_to "Discover Movies", "/users/#{@user.id}/discover", method: :get %>

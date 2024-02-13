@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
    def create
       user = User.new(user_params)
+      session[:user_id] = user.id
       if user.save
          flash[:success] = 'Successfully Created New User'
          redirect_to user_path(user)
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
    def login_user
       @user = User.find_by(email: params[:email])
       if @user && authenticate?
+         session[:user_id] = @user.id
          flash[:success] = "Hello, #{@user.name}!"
          cookies.signed[:location] = params[:location]
          redirect_path = if @user.admin?
@@ -51,6 +53,12 @@ class UsersController < ApplicationController
          flash[:error] = "Invalid Username or Password"
          render :login_form
       end
+   end
+
+   def logout_user
+      session.delete(:user_id)
+      flash[:success] = "You have successfully logged out."
+      redirect_to root_path
    end
 
    private
