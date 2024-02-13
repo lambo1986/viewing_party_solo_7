@@ -35,8 +35,8 @@ class UsersController < ApplicationController
    end
 
    def login_user
-      @user = User.find_by(name: params[:username])
-      if authenticate
+      @user = User.find_by(email: params[:email])
+      if @user && authenticate?
          flash[:success] = "Hello, #{@user.name}!"
          redirect_to user_path(@user)
       else
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
    end
 
-   def authenticate
-      @user.authenticate(params[:password]) && @user.authenticate(params[:confirmation_password])
+   def authenticate?
+      @user.authenticate(params[:password])
    end
 end
