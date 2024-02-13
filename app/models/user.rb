@@ -1,5 +1,6 @@
 class User < ApplicationRecord
    validates_presence_of :name
+   validates :password_digest, presence: true
    validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
    has_many :user_parties
