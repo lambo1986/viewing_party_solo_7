@@ -95,17 +95,6 @@ RSpec.describe "Loggin in", type: :feature do
 
       expect(current_path).to eq(user_path(user))
       expect(page).to have_button("Log Out")
-
-      click_button("Log Out")#not sure how else to make sure user is logged in or not
-
-      expect(current_path).to eq(root_path)
-      expect(page).to have_content "You have successfully logged out."
-
-      visit "http://www.google.com"
-      visit user_path(user)
-
-      expect(current_path).to eq(user_path(user))
-      expect(page).not_to have_button("Log Out")
     end
   end
 
@@ -183,6 +172,15 @@ RSpec.describe "Loggin in", type: :feature do
       expect(page).to have_link "Log Out"
       expect(page).to have_content "#{user.email}"
       expect(page).not_to have_link "#{user.email}"
+    end
+
+    it "doesn't not allow a user to visit a user show page if they have not logged in" do# US-6 Challenge
+      user = User.create!(name: "Bap", email: "doo@doo.com", password: "getit3", password_confirmation: "getit3")
+      visit root_path
+      visit user_path(user)
+
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content "Must be logged in to access this page."
     end
   end
 end

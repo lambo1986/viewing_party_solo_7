@@ -5,9 +5,14 @@ class UsersController < ApplicationController
    end
 
    def show
-      @user = User.find(params[:id])
-      @viewing_parties_hosted = @user.hosted_viewing_parties#US-7
-      @viewing_parties_unhosted = @user.viewing_parties_attended#US-7
+      if logged_in?
+         @user = User.find(params[:id])
+         @viewing_parties_hosted = @user.hosted_viewing_parties#US-7
+         @viewing_parties_unhosted = @user.viewing_parties_attended#US-7
+      else
+         flash[:message] = "Must be logged in to access this page."
+         redirect_to root_path
+      end
    end
 
    def movies
