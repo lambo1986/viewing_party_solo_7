@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
    def logged_in?
       current_user.present?
    end
-   
+
    private
 
    def error_message(errors)

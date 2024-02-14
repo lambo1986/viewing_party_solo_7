@@ -182,5 +182,40 @@ RSpec.describe "Loggin in", type: :feature do
       expect(current_path).to eq(root_path)
       expect(page).to have_content "Must be logged in to access this page."
     end
+
+    it "doesn't allow a visitor to create a viewing party if they have not logged in", :vcr do# US-7 Challenge
+      user = User.create!(name: 'Sam', email: 'sam@email.com', password: 'password123', password_confirmation: 'password123')
+
+      visit("/users/#{user.id}/discover")
+
+      fill_in "search", with: "Big"
+      click_button "Search"
+
+      expect(current_path).to eq("/users/#{user.id}/movies")
+      expect(page).to have_content("Searched Movie:")
+      expect(page).to have_link("Big")
+      expect(page).to have_content("Vote Average: 7.164")
+
+      click_link("Big")
+
+      expect(current_path).to eq "/users/#{user.id}/movies/2280"# we have arrived
+      expect(page).to have_button("Return to Discover")
+      expect(page).to have_content("Movie Information")
+      expect(page).to have_button("Create a Viewing Party")
+      expect(page).to have_content("Title: Big")# title
+      expect(page).to have_content("Vote Average: 7.164")# vote_average
+      expect(page).to have_content("Vote Count: 3395")# vote_count
+      expect(page).to have_content("Summary: When a young boy makes a wish")# overview
+      expect(page).to have_content("Genre:")# 14, 18, 35, 10749, 10751
+      expect(page).to have_content("Runtime:")# 1hr 44min
+      expect(page).to have_content("Cast Members:")# first 10
+      expect(page).to have_content("Reviews Count:")
+      expect(page).to have_content("Review Author:")
+      expect(page).to have_content("Review Content:")
+
+      click_button("Create a Viewing Party")
+      expect(current_path).to eq "/users/#{user.id}/movies/2280"
+      expect(page).to have_content("Must be logged in to create viewing party.")
+    end
   end
 end

@@ -1,8 +1,14 @@
 class ViewingPartiesController < ApplicationController
+
   def new
     @movie = current_movie
-    @user = current_user
-    @viewing_party = ViewingParty.new
+    @user = current_user_vpc# changed this because it was named the same as the application_controller method
+    if logged_in?# added this line for authentication challenge US7
+      @viewing_party = ViewingParty.new
+    else
+      flash[:message] = "Must be logged in to create viewing party."
+      redirect_to user_movie_path(params[:user_id], params[:movie_id])
+    end
   end
 
   def create
@@ -32,7 +38,7 @@ class ViewingPartiesController < ApplicationController
     params.require(:viewing_party).permit(:duration, :date, :start_time, :movie_id, guest_ids: [])
   end
 
-  def current_user
+  def current_user_vpc
     User.find_by_id(params[:user_id])
   end
 
