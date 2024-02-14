@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete '/logout', to:'users#logout_user'
   namespace :admin do
     get '/dashboard', to: 'dashboard#index'
+    get '/users/:id', to: 'dashboard#user'
   end
   resources :users, only: [:show, :create] do
     get '/discover', to: 'users#discover', on: :member# not sure if this is where I want to go with this route

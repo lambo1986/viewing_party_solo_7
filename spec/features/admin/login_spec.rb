@@ -14,6 +14,26 @@ RSpec.describe "Admin login", type: :feature do# challenge extension
       click_button "Log In"
 
       expect(current_path).to eq(admin_dashboard_path)
+      expect(page).to have_content("Admin Dashboard")
+      expect(page).to have_content("Default Users:")
+      expect(page).to have_link(user1.email)
+      expect(page).to have_link(user2.email)
+
+      click_link(user1.email)
+
+      expect(current_path).to eq("/admin/users/#{user1.id}")
+    end
+  end
+
+  describe "as default user" do
+    it 'does not allow default user to see admin dashboard index' do
+      user1 = User.create!(name: "Bap", email: "doo@doo.com", password: "getit3", password_confirmation: "getit3")
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
+
+      visit admin_dashboard_path
+
+      expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
 end

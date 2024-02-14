@@ -1,0 +1,6 @@
+<h1>Admin Dashboard</h1>
+<h2>Default Users:</h2>
+
+<% @default_users.each do |user| %>
+  <h2><%= link_to user.email, "/admin/users/#{user.id}" %></h2>
+<% end %>
