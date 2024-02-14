@@ -202,13 +202,13 @@ RSpec.describe "Loggin in", type: :feature do
       expect(page).to have_button("Return to Discover")
       expect(page).to have_content("Movie Information")
       expect(page).to have_button("Create a Viewing Party")
-      expect(page).to have_content("Title: Big")# title
-      expect(page).to have_content("Vote Average: 7.164")# vote_average
-      expect(page).to have_content("Vote Count: 3395")# vote_count
-      expect(page).to have_content("Summary: When a young boy makes a wish")# overview
-      expect(page).to have_content("Genre:")# 14, 18, 35, 10749, 10751
-      expect(page).to have_content("Runtime:")# 1hr 44min
-      expect(page).to have_content("Cast Members:")# first 10
+      expect(page).to have_content("Title: Big")
+      expect(page).to have_content("Vote Average: 7.164")
+      expect(page).to have_content("Vote Count: 3395")
+      expect(page).to have_content("Summary: When a young boy makes a wish")
+      expect(page).to have_content("Genre:")
+      expect(page).to have_content("Runtime:")
+      expect(page).to have_content("Cast Members:")
       expect(page).to have_content("Reviews Count:")
       expect(page).to have_content("Review Author:")
       expect(page).to have_content("Review Content:")
