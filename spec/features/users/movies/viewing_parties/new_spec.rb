@@ -7,6 +7,11 @@ RSpec.describe "New Viewing Party Page", type: :feature, vcr: :true do# US-4
       user1 = User.create!(name: 'Jams', email: 'jams@email.com', password: 'password123', password_confirmation: 'password123')
       user2 = User.create!(name: 'Ari', email: 'ari@email.com', password: 'password123', password_confirmation: 'password123')
       user3 = User.create!(name: 'Tok', email: 'tok@email.com', password: 'password123', password_confirmation: 'password123')
+      visit login_path
+      fill_in "Email:", with: user.email
+      fill_in "Password:", with: user.password
+      fill_in "Location:", with: "San Francisco, CA"
+      click_button "Log In"
       visit("/users/#{user.id}/discover")
 
       fill_in "search", with: "Big"
@@ -79,6 +84,11 @@ RSpec.describe "New Viewing Party Page", type: :feature, vcr: :true do# US-4
         user1 = User.create!(name: 'Jams', email: 'jams@email.com', password: 'password123', password_confirmation: 'password123')
         user2 = User.create!(name: 'Ari', email: 'ari@email.com', password: 'password123', password_confirmation: 'password123')
         user3 = User.create!(name: 'Tok', email: 'tok@email.com', password: 'password123', password_confirmation: 'password123')
+        visit login_path
+        fill_in "Email:", with: user.email
+        fill_in "Password:", with: user.password
+        fill_in "Location:", with: "San Francisco, CA"
+        click_button "Log In"
         visit("/users/#{user.id}/discover")
 
         fill_in "search", with: "Big"

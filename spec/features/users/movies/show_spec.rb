@@ -4,6 +4,12 @@ RSpec.describe "Movie's detail page", type: :feature do# US-3
   it "has a button to go back to the discover page, a button to create a viewing party, and many movie details", :vcr do
     user = User.create!(name: 'Sam', email: 'sam@email.com', password: 'password123', password_confirmation: 'password123')
 
+    visit login_path
+    fill_in "Email:", with: user.email
+    fill_in "Password:", with: user.password
+    fill_in "Location:", with: "San Francisco, CA"
+    click_button "Log In"
+
     visit("/users/#{user.id}/discover")
 
     fill_in "search", with: "Big"
@@ -22,7 +28,7 @@ RSpec.describe "Movie's detail page", type: :feature do# US-3
     expect(page).to have_button("Create a Viewing Party")
     expect(page).to have_content("Title: Big")
     expect(page).to have_content("Vote Average: 7.164")
-    expect(page).to have_content("Vote Count: 3387")
+    expect(page).to have_content("Vote Count: 3395")
     expect(page).to have_content("Summary: When a young boy makes a wish")
     expect(page).to have_content("Genre:")
     expect(page).to have_content("Runtime:")

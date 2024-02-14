@@ -16,6 +16,11 @@ RSpec.describe "user dashboard", type: :feature, vcr: true do
     viewing_party1.users << [user1, user2, user3]# sam invites Jams, Ari, Tok
     viewing_party2.users << [user, user2, user3]# jams invites sam, Ari, Tok
 
+    visit login_path
+    fill_in "Email:", with: user.email
+    fill_in "Password:", with: user.password
+    fill_in "Location:", with: "San Francisco, CA"
+    click_button "Log In"
     visit "/users/#{user.id}"
 
     expect(page).to have_content("Sam's Dashboard")
@@ -33,7 +38,11 @@ RSpec.describe "user dashboard", type: :feature, vcr: true do
 
   it "has a button to discover movies" do# added for smooth rails server experience (can get anywhere from root now)
     user = User.create!(name: 'Sam', email: 'sam@email.com', password: 'password123', password_confirmation: 'password123')
-
+    visit login_path
+    fill_in "Email:", with: user.email
+    fill_in "Password:", with: user.password
+    fill_in "Location:", with: "San Francisco, CA"
+    click_button "Log In"
     visit "/users/#{user.id}"
 
     expect(page).to have_button("Discover Movies")
@@ -58,6 +67,11 @@ RSpec.describe "user dashboard", type: :feature, vcr: true do
     viewing_party1.users << [user1, user2, user3]# sam invites Jams, Ari, Tok
     viewing_party2.users << [user, user2, user3]# jams invites sam, Ari, Tok
 
+    visit login_path
+    fill_in "Email:", with: user.email
+    fill_in "Password:", with: user.password
+    fill_in "Location:", with: "San Francisco, CA"
+    click_button "Log In"
     visit "/users/#{user.id}"
 
     expect(page).to have_button("Where to Watch")
