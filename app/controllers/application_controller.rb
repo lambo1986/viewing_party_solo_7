@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
       current_user.present?
    end
 
+   def current_admin?
+      current_user && current_user.admin?
+   end
+
    private
 
    def error_message(errors)
